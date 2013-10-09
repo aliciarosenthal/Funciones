@@ -19,18 +19,14 @@ public class FuncionTest {
 	public void TestearFormula1() {
 		// formula a testear f(x)= (3*x)(3+x)
 		v1.setVal(15);
-		Assert.assertTrue(formula1.eval() == 63); // la formula me da el eval de
-													// suma2, suma2 es la suma
-													// de multiplicacion (c1=3 y
-													// v1=15 en este caso) +
-													// suma (c1=3 + v1=15)
+		Assert.assertTrue(formula1.eval() == 63); // f(15)=(3*15)+(3+15)
 	}
 
 	@Test
 	public void TestearFormula1conOtraVariable() {
 		// formula a testear f(x)= (3*x)(3+x)
 		v1.setVal(10);
-		Assert.assertTrue(formula1.eval() == 43); // (3*10)+(3+10)
+		Assert.assertTrue(formula1.eval() == 43); // f(10)=(3*10)+(3+10)
 	}
 
 	@Test
@@ -41,14 +37,14 @@ public class FuncionTest {
 		Expresion multiplicacion3 = new Multiplicacion(v1, c2); // multiplicacion3=10
 		Expresion suma3 = new Suma(multiplicacion3, lognep3); // sum3=11.098
 		Expresion negativo2 = new Negativo(suma3); // negativo2 = -11.098z
-		Formula formula2 = new Formula(negativo2); // f(x)= -((x*2)+ (lognep(3))
+		Formula formula2 = new Formula(negativo2); // f(5)= -((5*2)+ (lognep(3))
 		Assert.assertEquals(-11.098, formula2.eval(), 0.1);
 
 	}
 
 	@Test
 	public void TestearEvalLogNep() {
-		Assert.assertEquals(1.779, lognep.eval(), 0.1); // logaritmo neperiano de 6 (multiplicacion de c1=3 * c2=2);
+		Assert.assertEquals(1.779, lognep.eval(), 0.1); // logNep (6) (c1=3 * c2=2);
 	}
 
 	@Test
@@ -59,7 +55,7 @@ public class FuncionTest {
 	@Test
 	public void TestearEvalSumaConMultiplicacion() {
 		v1.setVal(7);
-		Assert.assertTrue(suma2.eval() == 31); // si c1 vale 3 y v1 7, (3*7) + (3+7)=31
+		Assert.assertTrue(suma2.eval() == 31); // (3*7) + (3+7)=31
 	}
 
 	@Test
