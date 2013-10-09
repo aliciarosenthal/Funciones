@@ -41,6 +41,31 @@ public class FuncionTest {
 		Assert.assertEquals(-11.098, formula2.eval(), 0.1);
 
 	}
+	
+	@Test
+	public void TestearFormula3() {
+		// formula a testear f(x) = (ln (3*(x^2))/2
+		v1.setVal(3);
+		Expresion elevado1 = new Elevado(v1, c2);// =9
+		Expresion multiplicacion4 = new Multiplicacion(c1, elevado1);// =27
+		Expresion lognep4 = new LogNep(multiplicacion4);// =3,2958
+		Expresion division1 = new Division(lognep4, c2);// =1,6479
+		Formula formula3 = new Formula(division1);
+		Assert.assertEquals(1.64, formula3.eval(), 0.1);
+	}
+	
+	@Test
+	public void TestearFormula4() {
+		// formula a testear f(x,y) = 3x + 2y 
+		v1.setVal(3);
+		Variable y = new Variable();
+		y.setVal(4);
+		Expresion multiplicacion3 = new Multiplicacion(c1,v1);//=9
+		Expresion multiplicacion4 = new Multiplicacion(c2,y);//=8
+		Expresion suma3 = new Suma (multiplicacion3, multiplicacion4);//=17
+		Formula formula4 = new Formula(suma3);
+		Assert.assertEquals(17, formula4.eval(), 0.1);
+	}
 
 	@Test
 	public void TestearEvalLogNep() {
